@@ -20,7 +20,7 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     websockets.get("socket", use: socketHandler)
     services.register(websockets, as: WebSocketServer.self)
     
-    let connectionURI = "mongodb://206.189.239.109:27017/RiseTime"
+    let connectionURI = "mongodb://0.0.0.0/RiseTime"
     services.register { container -> MongoKitten.Database in
         return try MongoKitten.Database.lazyConnect(connectionURI, on: container.eventLoop)
     }
